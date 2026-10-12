@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mínimos cuadrados | Análisis de regresión</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Librería para gráficas -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="topbar">
+        <h1>TAREA 08 - REGRESIÓN</h1>
+        <nav aria-label="Navegación principal">
+            <a href="#analisis">Análisis</a>
+            <a href="#procedimiento">Procedimiento</a>
+            <a href="#equipo">Equipo</a>
+        </nav>
+    </header>
+    
+    <main id="analisis" class="dashboard-main">
+        <div class="caja-seccion1">
+            <div>
+                <h1 class="titulos-principales">Regresión lineal simple</h1>
+            </div>
+            <p class="parrafo-normal">Ajusta una recta por mínimos cuadrados, explora sus métricas y estima nuevos valores a partir de tus datos.</p>
+        </div>
+
+        <div class="dashboard-content">
+            <div class="caja-configuracion">
+                <h3 class="">Ingresar Datos</h3>
+                <div class="inputs-container">
+                    <label>X: <input type="text" id="x-values" value="30, 40, 57, 28, 34, 37, 44, 29, 51, 47"></label>
+                    <label>Y: <input type="text" id="y-values" value="2800, 3500, 4000, 2500, 3100, 3900, 4400, 2300, 4200, 3300"></label>
+                    <button onclick="calcularRegresion()">Calcular y Graficar</button>
+                </div>
+                <div class="inputs-container">
+                    <label>Estimar X: <input type="number" id="predict-x"></label>
+                    <button onclick="estimarValor()">Estimar Y</button>
+                    <p id="prediction-result"></p>
+                </div>
+            </div>
+            
+            <div class="metricas-container">
+                <div class="metrica"><strong>RMSE:</strong> <span id="rmse-val">-</span></div>
+                <div class="metrica"><strong>MAE:</strong> <span id="mae-val">-</span></div>
+                <div class="metrica"><strong>MAPE:</strong> <span id="mape-val">-</span>%</div>
+            </div>
+
+            <div class="estadisticas-container">
+                <p class="metrica"><strong>Media X:</strong> <span id="media-x">-</span> | <strong>Var X:</strong> <span id="var-x">-</span> | <strong>Desv X:</strong> <span id="desv-x">-</span></p>
+                <p class="metrica"><strong>Media Y:</strong> <span id="media-y">-</span> | <strong>Var Y:</strong> <span id="var-y">-</span> | <strong>Desv Y:</strong> <span id="desv-y">-</span></p>
+            </div>
+
+            <div class="grafica-container">
+                <canvas id="regresionChart"></canvas>
+            </div>
+        </div>
+    </main>
+
+    <!-- SECCIÓN DE PROCEDIMIENTO -->
+    <section id="procedimiento" class="seccion-extra">
+        <h2>Procedimiento de Cálculos</h2>
+        <pre id="procedimiento-texto">Aquí se mostrará el paso a paso tras calcular...</pre>
+    </section>
+
+    <!-- SECCIÓN DEL EQUIPO -->
+    <section id="equipo" class="seccion-extra">
+        <h2>Integrantes del Equipo</h2>
+        <ul>
+            <li>Integrante 1 - Matrícula</li>
+            <li>Integrante 2 - Matrícula</li>
+            <li>Integrante 3 - Matrícula</li>
+        </ul>
+    </section>
+
+    <script src="logica.js"></script>
+</body>
+</html>

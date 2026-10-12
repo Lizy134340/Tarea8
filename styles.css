@@ -1,0 +1,153 @@
+:root {
+    --morado-principal: #9900a1;
+    --blanco-titulos: #FFFFFF;
+    --fondo-general: #f1c2f4;
+    --texto-claro: #FFFFFF;
+    --texto-oscuro: #272626;
+    --fondo-secundario: #f7def9;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--fondo-general);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header.topbar {
+    display: block;
+    width: 100%;
+    padding: 7px 0;
+    text-align: center;
+    background-color: var(--morado-principal);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header h1 {
+    color: var(--blanco-titulos);
+    margin: 10px 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+nav a {
+    color: var(--texto-claro);
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    background-color: var(--blanco-titulos);
+    color: var(--morado-principal);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.dashboard-main {
+    display: flex;
+    flex-direction: row;
+    min-height: 80vh;
+}
+
+.caja-seccion1 {
+    width: 30%;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.titulos-principales {
+    color: var(--blanco-titulos);
+    text-shadow: 2px 2px 4px var(--morado-principal);
+    margin-bottom: 1rem;
+}
+
+h3 {
+    color: var(--morado-principal);
+    margin-bottom: 0.5rem;
+}
+
+.parrafo-normal {
+    color: var(--texto-oscuro);
+    line-height: 1.5;
+}
+
+.dashboard-content {
+    width: 70%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.caja-configuracion {
+    border: 3px solid var(--morado-principal);
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.inputs-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.inputs-container input {
+    padding: 5px;
+    border: 1px solid var(--morado-principal);
+    border-radius: 4px;
+}
+
+button {
+    background-color: var(--morado-principal);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #7a0082;
+}
+
+.metrica, #media-x, #media-y{
+    color: var(--texto-oscuro);
+}
+
+.metricas-container, .estadisticas-container {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--fondo-secundario);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.grafica-container {
+    background-color: var(--fondo-secundario);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    height: 400px;
+}
+
+.seccion-extra {
+    padding: 3rem;
+    background-color: var(--fondo-secundario);
+    margin: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#procedimiento-texto {
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-family: monospace;
+}
