@@ -13,6 +13,23 @@ function calcularEstadisticas(arr) {
     return { media, varianza, desv };
 }
 
+function actualizarTabla(x, y) {
+    const cuerpo = document.getElementById('datos-tabla');
+    cuerpo.replaceChildren();
+
+    x.forEach((valorX, i) => {
+        const fila = document.createElement('tr');
+
+        [i + 1, valorX, y[i]].forEach(valor => {
+            const celda = document.createElement('td');
+            celda.textContent = valor;
+            fila.appendChild(celda);
+        });
+
+        cuerpo.appendChild(fila);
+    });
+}
+
 function calcularRegresion() {
     const xStr = document.getElementById('x-values').value;
     const yStr = document.getElementById('y-values').value;
@@ -24,6 +41,8 @@ function calcularRegresion() {
         alert("Los arreglos de X y Y deben tener la misma cantidad de números.");
         return;
     }
+
+    actualizarTabla(x, y);
 
     const n = x.length;
     let sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0;
@@ -76,13 +95,20 @@ function actualizarUI(rmse, mae, mape, estX, estY) {
     document.getElementById('media-y').textContent = estY.media.toFixed(2);
     document.getElementById('var-y').textContent = estY.varianza.toFixed(2);
     document.getElementById('desv-y').textContent = estY.desv.toFixed(2);
+    
 }
 
 function generarProcedimiento(x, y, n, sumX, sumY, sumXY, sumX2, m, b, rmse, mae, mape) {
     let texto = `1. Sumatorias:\n Σx = ${sumX}, Σy = ${sumY}, Σxy = ${sumXY}, Σx² = ${sumX2}, n = ${n}\n\n`;
-    texto += `2. Ecuación de la recta (y = mx + b):\n m = (${n}(${sumXY}) - (${sumX})(${sumY})) / (${n}(${sumX2}) - (${sumX})²) = ${m.toFixed(4)}\n b = (${sumY} - (${m.toFixed(4)})(${sumX})) / ${n} = ${b.toFixed(4)}\n`;
+    texto += `2. Ecuación de la recta (y = mx + b):\n 
+    m = (nΣxy - ΣxΣy) / (nΣx² - (Σx)²)\n 
+    b = (Σy - mΣx) / n\n\n`;
+    texto += ` Sustituyendo valores:\n
+    m = (${n}(${sumXY}) - (${sumX})(${sumY})) / (${n}(${sumX2}) - (${sumX})²) = ${m.toFixed(4)}\n    b = (${sumY} - (${m.toFixed(4)})(${sumX})) / ${n} = ${b.toFixed(4)}\n`;
     texto += `\n Modelo final: y = ${m.toFixed(4)}x + ${b.toFixed(4)}\n\n`;
-    texto += `3. Métricas:\n RMSE = √(${Math.pow(rmse,2)*n} / ${n}) = ${rmse.toFixed(4)}\n MAE = ${mae.toFixed(4)}\n MAPE = ${mape.toFixed(4)}%`;
+    texto += `3. Métricas:\n    RMSE = √(Σ(y - ŷ)² / n)\n    MAE = Σ|y - ŷ| / n \n    MAPE = (Σ|y - ŷ| / |y|) * 100 / n \n`;
+    texto += `\n Sustituyendo valores:\n`;
+    texto += `\n RMSE = √(${Math.pow(rmse,2)*n} / ${n}) = ${rmse.toFixed(4)}\n MAE = ${mae.toFixed(4)}\n MAPE = ${mape.toFixed(4)}%`;
     
     document.getElementById('procedimiento-texto').textContent = texto;
 }

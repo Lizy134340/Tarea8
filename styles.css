@@ -39,11 +39,11 @@ nav a {
 }
 
 nav a:hover {
-    text-decoration: underline;
     background-color: var(--blanco-titulos);
     color: var(--morado-principal);
     border-radius: 5px;
     padding: 5px;
+    transition: all 0.3s ease;
 }
 
 .dashboard-main {
@@ -72,6 +72,20 @@ h3 {
 .parrafo-normal {
     color: var(--texto-oscuro);
     line-height: 1.5;
+}
+
+.tabla-datos{
+    width: 100%;
+    margin-top: 1rem;
+    border-radius: 8px;
+}
+
+.tabla-datos th, .tabla-datos td {
+    border: 1px solid var(--morado-principal);
+    padding: 8px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 4px;
 }
 
 .dashboard-content {
